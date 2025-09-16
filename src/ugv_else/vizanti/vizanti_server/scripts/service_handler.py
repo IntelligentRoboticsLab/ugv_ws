@@ -15,6 +15,8 @@ from rclpy.node import Node
 from rclpy.executors import  MultiThreadedExecutor
 from rclpy.callback_groups import ReentrantCallbackGroup
 
+from ament_index_python.packages import get_package_share_directory # from ros-humble-ament-index-python package
+
 from std_srvs.srv import Trigger
 from vizanti_msgs.srv import GetNodeParameters, SetNodeParameter
 from vizanti_msgs.srv import LoadMap, SaveMap
@@ -198,7 +200,9 @@ class ServiceHandler(Node):
         
     def load_map(self, req, res):
         #file_path = os.path.expanduser(req.file_path)
-        file_path ="/home/ws/ugv_ws/src/ugv_main/ugv_nav/maps/map_server_params.yaml"
+        #file_path ="/home/ws/ugv_ws/src/ugv_main/ugv_nav/maps/map_server_params.yaml"
+        package_share_directory = get_package_share_directory('ugv_nav') # Something like ~/ugv_ws/install/ugv_nav/share/ugv_nav
+        file_path = package_share_directory + "maps/map_server_params.yaml"
         topic = req.topic
         try:
             #process = subprocess.Popen(["ros2", "run", "nav2_map_server", "map_server", file_path, "map:=" + topic, "__name:=vizanti_map_server"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
