@@ -123,8 +123,9 @@ At your own machine, you will have own configuration.
     
       
     ```jsx
-    cd ~/ugv_ws
+    cd ~/ugv_ws/src/ugv_ws
     python3 -m pip install -r requirements.txt
+    echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bashrc
     ```
     
     requirements.txt content
