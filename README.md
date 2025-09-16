@@ -33,7 +33,7 @@ At your own machine, you will have own configuration.
       sudo apt-get install ros-humble-imu-tools
       sudo apt-get install ros-humble-cartographer-ros
       sudo apt-get install ros-humble-apriltag ros-humble-apriltag-msgs ros-humble-apriltag-ros
-      sudo apt-get install ros-humble-ros-g
+      sudo apt-get install ros-humble-ros-gz
       ```
     - First compilation on the virtual machine (compiling one by one on the pi or jetson)
         
