@@ -89,10 +89,8 @@ At your own machine, you will have own configuration.
         build_apriltag.sh content
         
         ```jsx
-        cd ~/ugv_ws/src/ugv_else/apriltag_ros/apriltag
-        cmake -B build -DCMAKE_BUILD_TYPE=Release
-        cmake --build build --target install
         cd ~/ugv_ws
+        colcon build --cmake-args -Wno-dev --packages-select apriltag apriltag_msgs apriltag_ros --executor sequential  --symlink-install
         ```
         
 - Ubuntu software：
