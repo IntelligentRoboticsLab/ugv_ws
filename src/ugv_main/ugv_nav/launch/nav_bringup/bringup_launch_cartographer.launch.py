@@ -18,6 +18,7 @@ def generate_launch_description():
     bringup_dir = get_package_share_directory('nav2_bringup')
     launch_dir = os.path.join(bringup_dir, 'launch')
     cartographer_launch_dir = os.path.join(get_package_share_directory('cartographer'), 'launch')
+    cartographer_maps_dir = os.path.join(get_package_share_directory('cartographer'), 'maps')
  
     # Create the launch configuration variables
     namespace = LaunchConfiguration('namespace')
@@ -103,7 +104,7 @@ def generate_launch_description():
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(cartographer_launch_dir,
                                                        'localization.launch.py')),
-            launch_arguments={'pbstream_path': '/home/ws/ugv_ws/src/ugv_main/ugv_nav/maps/map.pbstream',
+            launch_arguments={'pbstream_path': os.path.join(cartographer_maps_dir,'map.pbstream'),
                               'use_sim_time': use_sim_time}.items()),
 
         IncludeLaunchDescription(
