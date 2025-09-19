@@ -10,7 +10,7 @@ sudo dpkg -i /tmp/ros2-apt-source.deb
 
 sudo apt update && sudo apt upgrade -y
 
-sudo apt remove libopencv-dev # will be installed again together with ros-humble-image-tools, if not removed it will give conflicts
+sudo apt remove libopencv-dev -y # will be installed again together with ros-humble-image-tools, if not removed it will give conflicts
 
 sudo apt install ros-dev-tools -y
 sudo apt install python3-colcon-clean -y
