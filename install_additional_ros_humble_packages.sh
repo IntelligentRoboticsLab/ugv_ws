@@ -10,6 +10,8 @@ sudo dpkg -i /tmp/ros2-apt-source.deb
 
 sudo apt update && sudo apt upgrade -y
 
+sudo apt remove libopencv-dev # will be installed again together with ros-humble-image-tools, if not removed it will give conflicts
+
 sudo apt install ros-dev-tools -y
 sudo apt install python3-colcon-clean -y
 sudo apt install ros-humble-desktop -y
@@ -28,4 +30,4 @@ sudo apt-get install ros-humble-cartographer-ros -y
 sudo apt-get install ros-humble-apriltag ros-humble-apriltag-msgs ros-humble-apriltag-ros -y
 sudo apt-get install ros-humble-ros-gz -y
 
-sudo apt autoremove -y
+sudo apt update && sudo apt autoremove -y
