@@ -31,3 +31,7 @@ sudo apt-get install ros-humble-apriltag ros-humble-apriltag-msgs ros-humble-apr
 sudo apt-get install ros-humble-ros-gz -y
 
 sudo apt update && sudo apt autoremove -y
+
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc # change this to your group-number
+source ~/.bashrc 
