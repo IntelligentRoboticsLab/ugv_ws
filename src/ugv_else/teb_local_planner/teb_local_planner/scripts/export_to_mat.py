@@ -72,7 +72,7 @@ def feedback_callback(data):
   mat = {'selected_trajectory_idx': data.selected_trajectory_idx, 'trajectories': trajectories, 'obstacles': obstacles}
 
   timestr = time.strftime("%Y%m%d_%H%M%S")
-  filename = '/home/albers/MasterThesis/Matlab/Homotopie/test_optim_node/' + 'teb_data_' + timestr + '.mat'
+  filename = '/tmp/' + 'teb_data_' + timestr + '.mat'
   
   rospy.loginfo("Saving mat-file '%s'.", filename)
   sio.savemat(filename, mat)
