@@ -3,4 +3,4 @@ map_server:
         frame_id: map
         topic_name: map
         use_sim_time: true
-        yaml_filename: /home/ws/ugv_ws/src/ugv_main/ugv_nav/maps/map.yaml
+        yaml_filename: ~/ugv_ws/install/ugv_nav/share/ugv_nav/maps/map.yaml
