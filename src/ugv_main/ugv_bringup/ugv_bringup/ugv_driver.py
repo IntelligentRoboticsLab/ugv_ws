@@ -105,7 +105,7 @@ class UgvDriver(Node):
 
         # If voltage drops below a threshold, play a low battery warning sound
         if 0.1 < voltage_value < 9: 
-            subprocess.run(['aplay', '-D', 'plughw:3,0', '/home/ws/ugv_ws/src/ugv_main/ugv_bringup/ugv_bringup/low_battery.wav'])
+            subprocess.run(['aplay', '-D', 'plughw:3,0', '~/ugv_ws/src/ugv_main/ugv_bringup/ugv_bringup/low_battery.wav'])
             time.sleep(5)
 
 def main(args=None):
