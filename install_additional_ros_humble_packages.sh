@@ -27,3 +27,5 @@ sudo apt-get install ros-humble-imu-tools -y
 sudo apt-get install ros-humble-cartographer-ros -y
 sudo apt-get install ros-humble-apriltag ros-humble-apriltag-msgs ros-humble-apriltag-ros -y
 sudo apt-get install ros-humble-ros-gz -y
+
+sudo apt autoremove -y
