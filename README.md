@@ -100,38 +100,11 @@ At your own machine, you will have own configuration.
         colcon build --cmake-args -Wno-dev --packages-select apriltag apriltag_msgs apriltag_ros --executor sequential  --symlink-install
         ```
         
-- Ubuntu software：
-    
-    **Install according to wiki install ros2 humble**
-    
-    ```jsx
-    apt-get update 
-    apt-get upgrade 
-    
-    apt install python3-pip
-    apt-get install alsa-utils
-    apt install python3-colcon-argcomplete
-    
-    apt install ros-humble-cartographer-*
-    apt install ros-humble-desktop-*
-    apt install ros-humble-joint-state-publisher-*
-    apt install ros-humble-nav2-*
-    apt install ros-humble-rosbridge-*
-    apt install ros-humble-rqt-*
-    apt install ros-humble-rtabmap-*
-    apt install ros-humble-usb-cam
-    apt install ros-humble-depthai-*
-    
-    #Simulation virtual machine installation
-    apt install gazebo
-    apt install ros-humble-gazebo-*
-    ```
-    
 - Python3 Library：
     
       
     ```jsx
-    cd ~/ugv_ws/src/ugv_ws
+    cd ~/ugv_ws/
     python3 -m pip install -r requirements.txt
     echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bashrc
     ```
