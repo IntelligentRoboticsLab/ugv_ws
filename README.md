@@ -22,6 +22,12 @@ At your own machine, you will have own configuration.
     - Before your first compilation, you should first install a number of dependencies
 
       ```jsx
+      cd ~/ugv_ws
+      source install_additional_ros_humble_packages.sh
+      ```
+      install_additional_ros_humble_packages.sh content
+      
+      ```jsx
       sudo apt-get install ros-humble-nav2-msgs ros-humble-map-msgs
       sudo apt-get install ros-humble-nav2-costmap-2d
       sudo apt-get install ros-humble-rosbridge-suite
