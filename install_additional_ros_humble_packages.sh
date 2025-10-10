@@ -1,7 +1,14 @@
 #!/bin/bash
 
 # from https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+sudo apt install software-properties-common
 sudo add-apt-repository universe -y
+
 sudo apt update && sudo apt install curl -y
 
 export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
