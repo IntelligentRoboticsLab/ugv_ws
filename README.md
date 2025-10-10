@@ -231,7 +231,7 @@ Graphical tools like rviz only work when you have a display. So, run those tools
     - Make sure that your UGV Rover is on the ground. Alternatively lift the wheels from the table by placing the base on a small box.
  
         ```jsx
-        ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear : {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z:1.8}}"  
+        ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear : {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"  
          ```
         
         Control the light data 0-255 data[0] control the light IO4 near the oak camera data[1] control the light IO5 near the usb camera
