@@ -202,6 +202,8 @@ The ugv-packages have several parameters, including:
 
 - lidar model optional ld06, ld19 (default), stl27l
 
+Graphical tools like rviz only work when you have a display. So, run those tools on your laptop, and the drivers on the UGV Rover
+
 
 - View model joints
    
@@ -212,7 +214,7 @@ The ugv-packages have several parameters, including:
         export UGV_MODEL=ugv_rover
         ```
         
-        start up
+        start up on (executed on your laptop)
         
         ```jsx
          ros2 launch ugv_description display.launch.py use_rviz:=true
@@ -221,15 +223,16 @@ The ugv-packages have several parameters, including:
         ![image.png](images/Ugv_rover.png)
         
          
-    - Drive the car (executed at the UGV Rover)
+    - Start the car (executed at the UGV Rover)
         
         ```jsx
          ros2 run ugv_bringup ugv_driver
         ```
-        
-        Drag the slider related to the joint angle publisher to control the gimbal
-        
-        [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1727491041/video_to_markdown/images/youtube--jA9LJTBRQqY-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/jA9LJTBRQqY "")
+    - Make sure that your UGV Rover is on the ground. Alternatively lift the wheels from the table by placing the base on a small box.
+ 
+        ```jsx
+        ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear : {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z:1.8}}"  
+         ```
         
         Control the light data 0-255 data[0] control the light IO4 near the oak camera data[1] control the light IO5 near the usb camera
         
@@ -247,14 +250,10 @@ The ugv-packages have several parameters, including:
    
         
         ```jsx
-        ros2 launch ugv_bringup bringup_lidar.launch.py use_rviz:=true
+        ros2 launch ugv_bringup bringup_lidar.launch.py use_rviz:=false
         ```
         
-    
-    Rotate the car in place to check the posture
-    
-    [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1727491431/video_to_markdown/images/youtube--5neLr1Q2ddM-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/5neLr1Q2ddM "")
-    
+           
 - Joystick, keyboard control
     
     Start the car  (executed at the UGV Rover)
