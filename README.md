@@ -116,6 +116,7 @@ At your own machine, you will have own configuration.
     flask
     mediapipe
     requests
+    pygame
     ```
     
 - Feature pack ugv_ws 
