@@ -34,6 +34,7 @@ sudo apt-get install ros-humble-joint-state-publisher-* -y
 sudo apt-get install ros-humble-robot-localization -y
 sudo apt-get install ros-humble-imu-tools -y
 sudo apt-get install ros-humble-cartographer-ros -y
+sudo apt-get install ros-humble-libg2o -y
 sudo apt-get install ros-humble-apriltag ros-humble-apriltag-msgs ros-humble-apriltag-ros -y
 sudo apt-get install ros-humble-ros-gz -y
 
