@@ -16,7 +16,7 @@ The workspace should also work for the UGV Beast, although this is not tested.
 
 ## 2. Installation
 
-- The history of the this workspace can be summarized：(https://github.com/DUDULRX/ugv_ws/tree/ros2-humble) -> (https://github.com/waveshareteam/ugv_ws.git) -> (https://github.com/IntelligentRoboticsLab/ugv_ws.git)
+- The history of the this workspace can be summarized：https://github.com/DUDULRX/ugv_ws/tree/ros2-humble -> https://github.com/waveshareteam/ugv_ws.git -> https://github.com/IntelligentRoboticsLab/ugv_ws.git
 
 - Start with creating a clone of this repository:
     
@@ -260,7 +260,7 @@ See also [Tutorial 2: RViz View Product Model](https://www.waveshare.com/wiki/UG
         
 ### Drive the car
 
-[Tutorial 3: Use Joystick or Keyboard Control](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_3._Use_Joystick_or_Keyboard_Control)
+See also [Tutorial 3: Use Joystick or Keyboard Control](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_3._Use_Joystick_or_Keyboard_Control)
          
 - Start the car (executed at the UGV Rover)
         
@@ -306,4 +306,4 @@ See also [Tutorial 2: RViz View Product Model](https://www.waveshare.com/wiki/UG
         ```
       
         
-The other functionalities are explained in the documention of the each of the ugv-packages
+The other functionalities are explained in the documention of the each of the [ugv packages](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/) and the [Waveshare documentation](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2).
