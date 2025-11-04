@@ -159,7 +159,7 @@ This are the alphabetic-list of the modules in the ugv_ws, which is not the logi
    
 - [ugv_nav navigation](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_nav): Nav2 toolbox
 
-  A tutorial is available from Waveshare: [Tutorial 6: Auto Navigation][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_6._Auto_Navigation)
+  A tutorial is available from Waveshare: [Tutorial 6: Auto Navigation](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_6._Auto_Navigation)
    
 - [ugv_slam](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_slam): Simultaneous Localization and Mapping
 
@@ -174,7 +174,7 @@ This are the alphabetic-list of the modules in the ugv_ws, which is not the logi
    
 - [ugv_vision](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_vision): visual interaction
 
-  Actually, this module is already used in [Tutorial 4: 2D Mapping based on LiDAR][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_4._2D_Mapping_Based_on_LiDAR]
+  Actually, this module is already used in [Tutorial 4: 2D Mapping based on LiDAR](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_4._2D_Mapping_Based_on_LiDAR)
    
 - [ugv_web_app](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_web_app): web-based control tool
 
@@ -190,22 +190,26 @@ This are the alphabetic-list of the modules in the ugv_ws, which is not the logi
 
   dependence from [ugv_slam](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_slam)
    
-- [costmap_converter](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/costmap_converter): 
+- [costmap_converter](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/costmap_converter): converts occupied costmap2d cells to primitive types. 
 
   dependence from [ugv_nav navigation](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_nav)
    
-- emcl_ros2
-   
+- [emcl_ros2](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/emcl2_ros2): Monte Carlo localization
+
+  dependence from [ugv_slam](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_slam)
   
-- explore_lite
+- [explore_lite](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/explore_lite)
+
+  dependence from [ugv_nav navigation](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_nav)
    
+- [gmapping](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/gmapping): ROS2 wrapper for OpenSlam's Gmapping.
+
+  dependence from [ugv_slam](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_slam) 
    
-- gmapping
-   
-   
-- ldlidar
-   
-   
+- [ldlidar](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/ldlidar): drivers for LiDAR products sold by Shenzhen LDROBOT Co.
+
+  dependence from [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup) 
+  
 - rf2o_laser_odometry
    
 - robot_pose_publisher
