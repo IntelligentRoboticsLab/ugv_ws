@@ -7,131 +7,135 @@ At your own machine, you will have own configuration.
 
 Note that the situation is different once you have started the docker image (at the UGV or at your laptop). Note that most of the [Waveshare documentation](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2) assumes that you are inside the docker image. The Intelligent Robotics Lab also reversed engineered a version of the docker image, also available on [github](https://github.com/IntelligentRoboticsLab/ugv_rover_docker).
 
-1.Environment
+## 1. Environment
 
 - pc software：Ubuntu 22.04, ROS2 Humble
 - ugv Version：UGV Rover
--
+
 The workspace should also work for the UGV Beast, although this is not tested.
 
-2.Architecture
+## 2. Installation
 
-- project：https://github.com/DUDULRX/ugv_ws/tree/ros2-humble -> https://github.com/waveshareteam/ugv_ws.git -> https://github.com/IntelligentRoboticsLab/ugv_ws.git
+- The history of the this workspace can be summarized：(https://github.com/DUDULRX/ugv_ws/tree/ros2-humble) -> (https://github.com/waveshareteam/ugv_ws.git) -> (https://github.com/IntelligentRoboticsLab/ugv_ws.git)
+
+- Start with creating a clone of this repository:
     
     ```jsx
     cd 
     git clone -b ros2-humble-develop https://github.com/IntelligentRoboticsLab/ugv_ws.git
     ```
 
-    - Before your first compilation, you should first install a number of dependencies
+- Before your first compilation, you should first install a number of dependencies
 
-      ```jsx
-      cd ~/ugv_ws
-      source install_additional_ros_humble_packages.sh
-      ```
-      install_additional_ros_humble_packages.sh content
+  ```jsx
+  cd ~/ugv_ws
+  source install_additional_ros_humble_packages.sh
+  ```
+  
+- install_additional_ros_humble_packages.sh content:
       
-      ```jsx
-      sudo apt-get install ros-humble-nav2-msgs ros-humble-map-msgs
-      sudo apt-get install ros-humble-nav2-costmap-2d
-      sudo apt-get install ros-humble-rosbridge-suite
-      sudo apt-get install ros-humble-nav2-bringup
-      sudo apt-get install ros-humble-usb-cam ros-humble-depthai-*
-      sudo apt-get install ros-humble-joint-state-publisher-*
-      sudo apt-get install ros-humble-robot-localization
-      sudo apt-get install ros-humble-imu-tools
-      sudo apt-get install ros-humble-cartographer-ros
-      sudo apt-get install ros-humble-apriltag ros-humble-apriltag-msgs ros-humble-apriltag-ros
-      sudo apt-get install ros-humble-ros-gz
+   ```jsx
+   sudo apt-get install ros-humble-nav2-msgs ros-humble-map-msgs
+   sudo apt-get install ros-humble-nav2-costmap-2d
+   sudo apt-get install ros-humble-rosbridge-suite
+   sudo apt-get install ros-humble-nav2-bringup
+   sudo apt-get install ros-humble-usb-cam ros-humble-depthai-*
+   sudo apt-get install ros-humble-joint-state-publisher-*
+   sudo apt-get install ros-humble-robot-localization
+   sudo apt-get install ros-humble-imu-tools
+   sudo apt-get install ros-humble-cartographer-ros
+   sudo apt-get install ros-humble-apriltag ros-humble-apriltag-msgs ros-humble-apriltag-ros
+   sudo apt-get install ros-humble-ros-gz
       ```
-    - First compilation on the virtual machine (compiling one by one on the pi or jetson)
+- First compilation (it starts cleans the workspace, so you start from scratch. It also defines a number of environment variables, which is needed only once):
         
-        ```jsx
-        cd ~/ugv_ws
-        . build_first.sh
+  ```jsx
+  cd ~/ugv_ws
+  . build_first.sh
+  ```
+        
+- build_first.sh content:
+
+  ```jsx
+  cd ~/ugv_ws/
+  colcon clean workspace
+  colcon build --cmake-args -Wno-dev --packages-select cartographer costmap_converter_msgs explore_lite --executor sequential 
+  colcon build --cmake-args -Wno-dev --packages-select openslam_gmapping slam_gmapping --executor sequential
+  colcon build --cmake-args -Wno-dev --packages-select ldlidar rf2o_laser_odometry robot_pose_publisher teb_msgs --executor sequential  
+  colcon build --cmake-args -Wno-dev --packages-select ugv_base_node ugv_interface ugv_bringup ugv_chat_ai ugv_description ugv_gazebo ugv_nav ugv_slam ugv_tools ugv_vision ugv_web_app --executor sequential
+  chmod +x ~/ugv_ws/src/ugv_else/vizanti/vizanti_server/scripts/*.py
+  colcon build --cmake-args -Wno-dev --packages-select vizanti vizanti_cpp vizanti_demos vizanti_msgs vizanti_server --executor sequential
+        
+  # echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc ## already done in install_additional_ros_humble_packages.sh
+  # echo ""export ROS_DOMAIN_ID=42" >> ~/.bashrc # change ROS_DOMAIN_ID to your group-number
+  echo "source ~/ugv_ws/install/setup.bash" >> ~/.bashrc
+  echo "export UGV_MODEL=ugv_rover" >> ~/.bashrc
+  echo "export LDLIDAR_MODEL=ld19" >> ~/.bashrc
+  source ~/.bashrc 
+  ```
+        
+- Daily compilation after first build:
+        
+  ```jsx
+  cd ~/ugv_ws
+  . build_common.sh
+  ```
+        
+- build_common.sh content
+        
+  ```jsx
+  cd ~/ugv_ws
+  colcon build --cmake-args -Wno-dev --packages-select cartographer costmap_converter_msgs explore_lite --executor sequential
+  colcon build --cmake-args -Wno-dev --packages-select openslam_gmapping slam_gmapping --executor sequential
+  colcon build --cmake-args -Wno-dev --packages-select ldlidar rf2o_laser_odometry robot_pose_publisher teb_msgs  --executor sequential  
+  colcon build --cmake-args -Wno-dev --packages-select ugv_base_node ugv_interface ugv_bringup ugv_chat_ai ugv_description ugv_gazebo ugv_nav ugv_slam ugv_tools ugv_vision ugv_web_app --executor sequential 
+  colcon build --cmake-args -Wno-dev --packages-select vizanti vizanti_cpp vizanti_demos vizanti_msgs vizanti_server --executor sequential  
+  source install/setup.bash 
         ```
+
+- Compile apriltag
         
-        build_first.sh content
+  ```jsx
+  cd ~/ugv_ws
+  . build_apriltag.sh
+  ```
         
-        ```jsx
-        cd ~/ugv_ws/
-        colcon clean workspace
-        colcon build --cmake-args -Wno-dev --packages-select cartographer costmap_converter_msgs explore_lite --executor sequential  --symlink-install
-        colcon build --cmake-args -Wno-dev --packages-select openslam_gmapping slam_gmapping --executor sequential  --symlink-install
-        colcon build --cmake-args -Wno-dev --packages-select ldlidar rf2o_laser_odometry robot_pose_publisher teb_msgs --executor sequential  --symlink-install
-        colcon build --cmake-args -Wno-dev --packages-select ugv_base_node ugv_interface ugv_bringup ugv_chat_ai ugv_description ugv_gazebo ugv_nav ugv_slam ugv_tools ugv_vision ugv_web_app --executor sequential  --symlink-install
-        chmod +x ~/ugv_ws/src/ugv_else/vizanti/vizanti_server/scripts/*.py
-        colcon build --cmake-args -Wno-dev --packages-select vizanti vizanti_cpp vizanti_demos vizanti_msgs vizanti_server --executor sequential  --symlink-install
+- build_apriltag.sh content
         
-        # echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc ## already done in install_additional_ros_humble_packages.sh
-        # echo ""export ROS_DOMAIN_ID=42" >> ~/.bashrc # change ROS_DOMAIN_ID to your group-number
-        echo "source ~/ugv_ws/install/setup.bash" >> ~/.bashrc
-        echo "export UGV_MODEL=ugv_rover" >> ~/.bashrc
-        echo "export LDLIDAR_MODEL=ld19" >> ~/.bashrc
-        source ~/.bashrc 
-        ```
-        
-    - Daily compilation after first build:
-        
-        ```jsx
-        cd ~/ugv_ws
-        . build_common.sh
-        ```
-        
-        build_common.sh content
-        
-        ```jsx
-        cd ~/ugv_ws
-        colcon build --cmake-args -Wno-dev --packages-select cartographer costmap_converter_msgs explore_lite --executor sequential  --symlink-install
-        colcon build --cmake-args -Wno-dev --packages-select openslam_gmapping slam_gmapping --executor sequential  --symlink-install
-        colcon build --cmake-args -Wno-dev --packages-select ldlidar rf2o_laser_odometry robot_pose_publisher teb_msgs  --executor sequential  --symlink-install
-        colcon build --cmake-args -Wno-dev --packages-select ugv_base_node ugv_interface ugv_bringup ugv_chat_ai ugv_description ugv_gazebo ugv_nav ugv_slam ugv_tools ugv_vision ugv_web_app --executor sequential  --symlink-install 
-        colcon build --cmake-args -Wno-dev --packages-select vizanti vizanti_cpp vizanti_demos vizanti_msgs vizanti_server --executor sequential  --symlink-install
-        source install/setup.bash 
-        ```
-        
-    - Compile apriltag
-        
-        ```jsx
-        cd ~/ugv_ws
-        . build_apriltag.sh
-        ```
-        
-        build_apriltag.sh content
-        
-        ```jsx
-        cd ~/ugv_ws
-        colcon build --cmake-args -Wno-dev --packages-select apriltag apriltag_msgs apriltag_ros --executor sequential  --symlink-install
-        ```
+  ```jsx
+  sudo apt install libopencv-dev=4.5.4+dfsg-9ubuntu4 -y
+  cd ~/ugv_ws
+  colcon build --cmake-args -Wno-dev --packages-select apriltag apriltag_msgs apriltag_ros --executor sequential
+  ```
         
 - Python3 Library：
     
       
-    ```jsx
-    cd ~/ugv_ws/
-    python3 -m pip install -r requirements.txt
-    echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bashrc
-    ```
+  ```jsx
+  cd ~/ugv_ws/
+  python3 -m pip install -r requirements.txt
+  echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bashrc
+  ```
     
-    requirements.txt content
+- requirements.txt content
     
-    ```jsx
-    pyserial
-    flask
-    mediapipe
-    requests
-    pygame
-    ```
+  ```jsx
+  pyserial
+  flask
+  mediapipe
+  requests
+  pygame
+  ```
     
-- Feature pack ugv_ws
+## Modules inside the workspace
 
 This are the alphabetic-list of the modules in the ugv_ws, which is not the logical build-up as given in [Waveshare documentation][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2].
     
-    > [ugv_main](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/): Main functions
-    > 
-    > 
-    > > [ugv_base_node](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_base_node): Two-wheel differential kinematics
-    > > Unfortunately no tutorial from WaveShare.
+    [ugv_main](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/): Main functions
+    
+     
+    [ugv_base_node](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_base_node): Two-wheel differential kinematics
+    Unfortunately no tutorial from WaveShare.
     > 
     > > [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup): drive, control
     > > A tutorial is available from Waveshare: [Tutorial 3: Use Joystick or Keyboard Control](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_3._Use_Joystick_or_Keyboard_Control)
