@@ -131,95 +131,106 @@ The workspace should also work for the UGV Beast, although this is not tested.
 
 This are the alphabetic-list of the modules in the ugv_ws, which is not the logical build-up as given in [Waveshare documentation](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2).
     
-- [ugv_main](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/): Main functions
-    
-     
+### [ugv_main](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/): Main functions
+       
 - [ugv_base_node](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_base_node): Two-wheel differential kinematics
+
   Unfortunately no tutorial from WaveShare.
   
 - [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup): drive, control
+
   A tutorial is available from Waveshare: [Tutorial 3: Use Joystick or Keyboard Control](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_3._Use_Joystick_or_Keyboard_Control)
-    > 
-    > > [ugv_chat_ai](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_chat_ai): web ai interaction
-    > > A tutorial is available from Waveshare: [Tutorial 8: Web Natural Language Interaction][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_8._Web_Natural_Language_Interaction)
-    > 
-    > > [ugv_description](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_description): Kinematic Model
-    > > A tutorial is available from Waveshare: [Tutorial 2: RViz View Product Model](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_2._RViz_View_Product_Model)
-    > 
-    > > [ugv_gazebo](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_gazebo): simulation
-    > > A tutorial is available from Waveshare: [Tutorial 11: Gazebo Simulation Debugging](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_11._Gazebo_Simulation_Debugging)
-    > 
-    > > [ugv_interface](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_interface): Information interface
-    > > A tutorial is available from Waveshare: [Tutorial 10: Command Interaction](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_10._Command_Interaction)
-    > 
-    > > [ugv_nav navigation](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_nav): Nav2 toolbox
-    > > A tutorial is available from Waveshare: [Tutorial 6: Auto Navigation][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_6._Auto_Navigation)
-    > 
-    > > [ugv_slam](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_slam): Simultaneous Localization and Mapping
-    > > This module is described in three tutorials from Waveshare: 
-    > > [Tutorial 4: 2D Mapping based on LiDAR](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_4._2D_Mapping_Based_on_LiDAR)
-    > > [Tutorial 5: 3D Mapping based on Depth Camera](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_5._3D_Mapping_Based_on_Depth_Camera)
-    > > [Tutorial 7: Navigation and SLAM Mapping](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_7._Navigation_and_SLAM_Mapping)
-    >
-    > > [ugv_tools](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_tools): Joystick tool
-    > > This module is used in Waveshare's [Tutorial 3: Use Joystick or Keyboard Control](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_3._Use_Joystick_or_Keyboard_Control)
-    > 
-    > > [ugv_vision](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_vision): visual interaction
-    > > Actually, this module is already used in [Tutorial 4: 2D Mapping based on LiDAR][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_4._2D_Mapping_Based_on_LiDAR]
-    > 
-    > > [ugv_web_app](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_web_app): web-based control tool
-    > > A tutorial is available from Waveshare: [Tutorial 9: Web-based control tool](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_9._Web-based_control_tool)
+   
+- [ugv_chat_ai](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_chat_ai): web ai interaction
+
+  A tutorial is available from Waveshare: [Tutorial 8: Web Natural Language Interaction](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_8._Web_Natural_Language_Interaction)
+   
+- [ugv_description](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_description): Kinematic Model
+
+  A tutorial is available from Waveshare: [Tutorial 2: RViz View Product Model](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_2._RViz_View_Product_Model)
+     
+- [ugv_gazebo](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_gazebo): simulation
+
+  A tutorial is available from Waveshare: [Tutorial 11: Gazebo Simulation Debugging](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_11._Gazebo_Simulation_Debugging)
+  
+- [ugv_interface](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_interface): Information interface
+
+  A tutorial is available from Waveshare: [Tutorial 10: Command Interaction](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_10._Command_Interaction)
+   
+- [ugv_nav navigation](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_nav): Nav2 toolbox
+
+  A tutorial is available from Waveshare: [Tutorial 6: Auto Navigation][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_6._Auto_Navigation)
+   
+- [ugv_slam](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_slam): Simultaneous Localization and Mapping
+
+  This module is described in three tutorials from Waveshare: 
+  - [Tutorial 4: 2D Mapping based on LiDAR](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_4._2D_Mapping_Based_on_LiDAR)
+  - [Tutorial 5: 3D Mapping based on Depth Camera](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_5._3D_Mapping_Based_on_Depth_Camera)
+  - [Tutorial 7: Navigation and SLAM Mapping](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_7._Navigation_and_SLAM_Mapping)
+
+- [ugv_tools](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_tools): Joystick tool
+
+  This module is used in Waveshare's [Tutorial 3: Use Joystick or Keyboard Control](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_3._Use_Joystick_or_Keyboard_Control)
+   
+- [ugv_vision](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_vision): visual interaction
+
+  Actually, this module is already used in [Tutorial 4: 2D Mapping based on LiDAR][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_4._2D_Mapping_Based_on_LiDAR]
+   
+- [ugv_web_app](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_web_app): web-based control tool
+
+  A tutorial is available from Waveshare: [Tutorial 9: Web-based control tool](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_9._Web-based_control_tool)
     
-    > ugv_else ( ugv_main dependencies)
-    > 
-    > 
-    > > [apriltag_ros](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/apriltag_ros): ROS2 wrapper for apriltag detection
-    > > dependence from [ugv_vision](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_vision)
-    > 
-    > > [cartographer][https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/cartographer]: real-time simultaneous localization, see [ROS Humble documentation][https://docs.ros.org/en/humble/p/cartographer/]
-    > > dependence from [ugv_slam](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_slam)
-    > 
-    > > [costmap_converter](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/costmap_converter): 
-    > > dependence from [ugv_nav navigation](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_nav)
-    > 
-    > > emcl_ros2
-    > > 
-    > 
-    > > explore_lite
-    > > 
-    > 
-    > > gmapping
-    > > 
-    > 
-    > > ldlidar
-    > > 
-    > 
-    > > rf2o_laser_odometry
-    > > 
-    > 
-    > > robot_pose_publisher
-    > > 
-    > 
-    > > teb_local_planner
-    > > 
-    > 
-    > > vizanti
-    > > 
+### ugv_else ( ugv_main dependencies)
+   
+- [apriltag_ros](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/apriltag_ros): ROS2 wrapper for apriltag detection
 
-3.Usage 
+  dependence from [ugv_vision](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_vision)
 
-The ugv-packages have several parameters, including:
+- [cartographer][https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/cartographer]: real-time simultaneous localization, see [ROS Humble documentation][https://docs.ros.org/en/humble/p/cartographer/]
 
-- use_rviz optional true, false (default)
+  dependence from [ugv_slam](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_slam)
+   
+- [costmap_converter](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/costmap_converter): 
 
-- car model optional rasp_rover, ugv_rover, ugv_beast
+  dependence from [ugv_nav navigation](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_nav)
+   
+- emcl_ros2
+   
+  
+- explore_lite
+   
+   
+- gmapping
+   
+   
+- ldlidar
+   
+   
+- rf2o_laser_odometry
+   
+- robot_pose_publisher
+   
+- teb_local_planner
+   
+- vizanti
+   
+
+## 3. Usage 
+
+The ugv-packages have several parameters, including the hardware configuration, specified as environment variable:
+
+- car model optional rasp_rover, ugv_rover, ugv_beast 
 
 - lidar model optional ld06, ld19 (default), stl27l
+
+You have also parameters given as ros-argument, such as:
+
+- use_rviz optional true, false (default)
 
 Graphical tools like rviz only work when you have a display. So, run those tools on your laptop, and the drivers on the UGV Rover
 
 
-- View model joints
+### View model joints
    
         
     - ugv_rover
@@ -287,13 +298,6 @@ Graphical tools like rviz only work when you have a display. So, run those tools
         ```jsx
         ros2 run ugv_tools keyboard_ctrl
         ```
-        
-        ![image.png](images/Keyboard%20controls.png)
+      
         
 The other functionalities are explained in the documention of the each of the ugv-packages
-                
-
-        
-        The saved points will also be stored in the file.
-        
-        ![image.png](images/The%20saved%20points%20will%20also%20be%20stored%20in%20the%20file.png)
