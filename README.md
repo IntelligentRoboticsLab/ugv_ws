@@ -129,16 +129,16 @@ The workspace should also work for the UGV Beast, although this is not tested.
     
 ## Modules inside the workspace
 
-This are the alphabetic-list of the modules in the ugv_ws, which is not the logical build-up as given in [Waveshare documentation][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2].
+This are the alphabetic-list of the modules in the ugv_ws, which is not the logical build-up as given in [Waveshare documentation](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2).
     
-    [ugv_main](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/): Main functions
+- [ugv_main](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/): Main functions
     
      
-    [ugv_base_node](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_base_node): Two-wheel differential kinematics
-    Unfortunately no tutorial from WaveShare.
-    > 
-    > > [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup): drive, control
-    > > A tutorial is available from Waveshare: [Tutorial 3: Use Joystick or Keyboard Control](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_3._Use_Joystick_or_Keyboard_Control)
+- [ugv_base_node](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_base_node): Two-wheel differential kinematics
+  Unfortunately no tutorial from WaveShare.
+  
+- [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup): drive, control
+  A tutorial is available from Waveshare: [Tutorial 3: Use Joystick or Keyboard Control](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_3._Use_Joystick_or_Keyboard_Control)
     > 
     > > [ugv_chat_ai](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_chat_ai): web ai interaction
     > > A tutorial is available from Waveshare: [Tutorial 8: Web Natural Language Interaction][https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_8._Web_Natural_Language_Interaction)
