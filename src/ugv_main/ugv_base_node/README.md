@@ -1,5 +1,5 @@
 # ugv_base_node
-## the most basic function to control Waveshare's UGV Rover with ROS2 Humble
+## the node that provides clean odometry to control Waveshare's UGV Rover with ROS2 Humble
 
 This is a fork from [Waveshare' repository](https://github.com/waveshareteam/ugv_ws/tree/ros2-humble-develop/src/ugv_main), created for the course 'Vision for Autonomous Robots' at the University of Amsterdam.
 
@@ -27,6 +27,8 @@ Examples of the launch of these nodes can be found in
 - bringup_imu_origin.launch.py
 - bringup_imu_ekf.launch.py
 
+Note that these launch files also start a imu_complementary_filter from [ROS Humble](https://github.com/CCNYRoboticsLab/imu_tools/tree/humble)
+
 See for more details [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup)
 
 ## Run
@@ -34,11 +36,13 @@ See for more details [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv
 - The node can be started with the following command (executed at the UGV Rover)
         
    ```jsx
+   ros2 run ugv_bringup ugv_driver
    ros2 run ugv_base_node base_node --ros-args -r pub_odom_tf:=true
    ```
    or equivallently
 
    ```jsx
+   ros2 run ugv_bringup ugv_driver
    ros2 run ugv_base_node base_node --ros-args -r pub_odom_tf:=true
    ```
 
