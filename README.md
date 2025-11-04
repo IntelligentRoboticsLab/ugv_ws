@@ -210,13 +210,19 @@ This are the alphabetic-list of the modules in the ugv_ws, which is not the logi
 
   dependence from [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup) 
   
-- rf2o_laser_odometry
+- [rf2o_laser_odometry](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/rf2o_laser_odometry): estimate the planar motion from lidar measurements
+
+  dependence from [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup) 
    
-- robot_pose_publisher
+- [robot_pose_publisher](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/robot_pose_publisher): ROS2 wrapper which publishes  the transform between the /base_link frame and the /map frame as a pose message
+
+  dependence from [ugv_nav navigation](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_nav)
    
-- teb_local_planner
+- [teb_local_planner](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/teb_local_planner): optimizes the robot's trajectory after planning
+
+  dependence from [ugv_nav navigation](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_nav)
    
-- vizanti
+- [vizanti](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/vizanti): web-based visualization and control tool for outdoor robots
    
 
 ## 3. Usage 
@@ -235,61 +241,57 @@ Graphical tools like rviz only work when you have a display. So, run those tools
 
 
 ### View model joints
+
+See also [Tutorial 2: RViz View Product Model](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_2._RViz_View_Product_Model)
    
+- Specify your UGV-model
         
-    - ugv_rover
+  ```jsx
+     export UGV_MODEL=ugv_rover
+  ```
         
-        ```jsx
-        export UGV_MODEL=ugv_rover
-        ```
+- start up on (executed on your laptop)
         
-        start up on (executed on your laptop)
+   ```jsx
+   ros2 launch ugv_description display.launch.py use_rviz:=true
+   ```
         
-        ```jsx
-         ros2 launch ugv_description display.launch.py use_rviz:=true
-        ```
+  ![image.png](images/Ugv_rover.png)
         
-        ![image.png](images/Ugv_rover.png)
-        
+### Drive the car
+
+[Tutorial 3: Use Joystick or Keyboard Control](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_3._Use_Joystick_or_Keyboard_Control)
          
-    - Start the car (executed at the UGV Rover)
+- Start the car (executed at the UGV Rover)
         
-        ```jsx
-         ros2 run ugv_bringup ugv_driver
-        ```
-    - Make sure that your UGV Rover is on the ground. Alternatively lift the wheels from the table by placing the base on a small box.
+   ```jsx
+   ros2 run ugv_bringup ugv_driver
+   ```
+
+- Make sure that your UGV Rover is on the ground. Alternatively lift the wheels from the table by placing the base on a small box.
  
-        ```jsx
-        ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear : {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"  
-         ```
+  ```jsx
+  ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear : {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"  
+  ```
         
-        Control the light data 0-255 data[0] control the light IO4 near the oak camera data[1] control the light IO5 near the usb camera
+  Control the light data 0-255 data[0] control the light IO4 near the oak camera data[1] control the light IO5 near the usb camera
         
         ```jsx
         ros2 topic pub /ugv/led_ctrl std_msgs/msg/Float32MultiArray "{data: [0, 0]}" -1
         ```
         
-- Chassis driver  (executed at the UGV Rover)
+- Start LiDAR  (executed at the UGV Rover)
     
-    
-    
-    ```jsx
-    export LDLIDAR_MODEL=LD19
-    ```
-   
+  ```jsx
+  export LDLIDAR_MODEL=LD19
+  ```
         
-        ```jsx
-        ros2 launch ugv_bringup bringup_lidar.launch.py use_rviz:=false
-        ```
+  ```jsx
+  ros2 launch ugv_bringup bringup_lidar.launch.py use_rviz:=false
+  ```
         
            
 - Joystick, keyboard control
-    
-    Start the car  (executed at the UGV Rover)
-    
-    ```jsx
-    ros2 launch ugv_bringup bringup_lidar.launch.py use_rviz:=true
-    ```
     
     - Joystick control (can be executed at the UGV Rover or your own laptop, as long as you are in the same ROS_DOMAIN_ID)
         
