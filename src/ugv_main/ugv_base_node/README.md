@@ -14,11 +14,11 @@ The nodes subscribe to two topics (/imu/data and /odom/odom_raw), filter this ob
 
  # Usage 
 
-The ugv-packages have several parameters, including the hardware configuration, specified as environment variable:
+The ugv-packages have several parameters, including the hardware configuration, specified as environment variable. These nodes themselves do no use UGV_MODEL, but ugv_description does:
 
-- car model optional rasp_rover, ugv_rover, ugv_beast
+- UGV_MODEL optional rasp_rover, ugv_rover, ugv_beast
 
-As ros-argument the node expects pub_odom_tf (true or false).
+As ros-argument the node expects pub_odom_tf, base_footnote_frame and odom_frame.
 
 ## Launch
 
@@ -54,7 +54,7 @@ See for more details [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv
 ```jsx
   ros2 launch ugv_description display.launch.py use_rviz:=true rviz_config:=base_node
 ```
-      
+ ![image.png](../../../images/view_base_node_rviz.png)      
         
 The other functionalities are explained in the documention of the each of the [ugv packages](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/) and the [Waveshare documentation](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2).
     
