@@ -54,7 +54,7 @@ See for more details [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv
 ```jsx
   ros2 launch ugv_description display.launch.py use_rviz:=true rviz_config:=base_node
 ```
-      
+ ![image.png](../../../images/view_base_node_rviz.png)      
         
 The other functionalities are explained in the documention of the each of the [ugv packages](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/) and the [Waveshare documentation](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2).
     
