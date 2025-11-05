@@ -6,12 +6,17 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /RobotModel1
         - /Odometry1
+        - /Odometry1/Shape1
         - /Odometry1/Covariance1
         - /Imu1
         - /Imu1/Axes properties1
         - /Imu2
         - /Imu2/Axes properties1
+        - /TF1
+        - /TF1/Frames1
+        - /TF1/Frames1/odom1
       Splitter Ratio: 0.5
     Tree Height: 746
   - Class: rviz_common/Selection
@@ -53,7 +58,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.4000000059604645
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
       Description File: ""
@@ -168,10 +173,10 @@ Visualization Manager:
         Axes Length: 1
         Axes Radius: 0.10000000149011612
         Color: 255; 25; 0
-        Head Length: 0.30000001192092896
-        Head Radius: 0.10000000149011612
-        Shaft Length: 1
-        Shaft Radius: 0.05000000074505806
+        Head Length: 0.15000000596046448
+        Head Radius: 0.05000000074505806
+        Shaft Length: 0.5
+        Shaft Radius: 0.02500000037252903
         Value: Arrow
       Topic:
         Depth: 5
@@ -198,7 +203,7 @@ Visualization Manager:
         y_scale: 1
         z_scale: 1
       Class: rviz_imu_plugin/Imu
-      Enabled: true
+      Enabled: false
       Name: Imu
       Topic:
         Depth: 5
@@ -207,7 +212,7 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /imu/data_raw
-      Value: true
+      Value: false
       fixed_frame_orientation: true
     - Acceleration properties:
         Acc. vector alpha: 1
@@ -216,7 +221,7 @@ Visualization Manager:
         Derotate acceleration: true
         Enable acceleration: false
       Axes properties:
-        Axes scale: 0.5
+        Axes scale: 0.25
         Enable axes: true
       Box properties:
         Box alpha: 1
@@ -237,6 +242,69 @@ Visualization Manager:
         Value: /imu/data
       Value: true
       fixed_frame_orientation: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        3d_camera_link:
+          Value: false
+        All Enabled: false
+        base_footprint:
+          Value: false
+        base_imu_link:
+          Value: false
+        base_lidar_link:
+          Value: false
+        base_link:
+          Value: false
+        left_down_wheel_link:
+          Value: false
+        left_up_wheel_link:
+          Value: false
+        odom:
+          Value: true
+        pt_base_link:
+          Value: false
+        pt_camera_link:
+          Value: false
+        pt_link1:
+          Value: false
+        pt_link2:
+          Value: false
+        right_down_wheel_link:
+          Value: false
+        right_up_wheel_link:
+          Value: false
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        odom:
+          base_footprint:
+            base_link:
+              3d_camera_link:
+                {}
+              base_imu_link:
+                {}
+              base_lidar_link:
+                {}
+              left_down_wheel_link:
+                {}
+              left_up_wheel_link:
+                {}
+              pt_base_link:
+                pt_link1:
+                  pt_link2:
+                    pt_camera_link:
+                      {}
+              right_down_wheel_link:
+                {}
+              right_up_wheel_link:
+                {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -283,7 +351,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 3.427899122238159
+      Distance: 1.292352557182312
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
