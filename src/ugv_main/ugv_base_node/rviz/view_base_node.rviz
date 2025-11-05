@@ -8,15 +8,12 @@ Panels:
         - /Status1
         - /RobotModel1
         - /Odometry1
-        - /Odometry1/Shape1
         - /Odometry1/Covariance1
-        - /Imu1
         - /Imu1/Axes properties1
         - /Imu2
         - /Imu2/Axes properties1
         - /TF1
         - /TF1/Frames1
-        - /TF1/Frames1/odom1
       Splitter Ratio: 0.5
     Tree Height: 746
   - Class: rviz_common/Selection
@@ -281,28 +278,29 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
+        base_footprint:
+          base_link:
+            3d_camera_link:
+              {}
+            base_imu_link:
+              {}
+            base_lidar_link:
+              {}
+            left_down_wheel_link:
+              {}
+            left_up_wheel_link:
+              {}
+            pt_base_link:
+              pt_link1:
+                pt_link2:
+                  pt_camera_link:
+                    {}
+            right_down_wheel_link:
+              {}
+            right_up_wheel_link:
+              {}
         odom:
-          base_footprint:
-            base_link:
-              3d_camera_link:
-                {}
-              base_imu_link:
-                {}
-              base_lidar_link:
-                {}
-              left_down_wheel_link:
-                {}
-              left_up_wheel_link:
-                {}
-              pt_base_link:
-                pt_link1:
-                  pt_link2:
-                    pt_camera_link:
-                      {}
-              right_down_wheel_link:
-                {}
-              right_up_wheel_link:
-                {}
+          {}
       Update Interval: 0
       Value: true
   Enabled: true
