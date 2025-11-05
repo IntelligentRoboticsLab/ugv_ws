@@ -28,6 +28,9 @@ Examples of the launch of these nodes can be found in
 - bringup_imu_ekf.launch.py
 
 Note that these launch files also start a imu_complementary_filter from [ROS Humble](https://github.com/CCNYRoboticsLab/imu_tools/tree/humble)
+In addition, the base_node is also started from:
+
+- bringup_lidar.launch.py
 
 See for more details [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup)
 
@@ -36,17 +39,21 @@ See for more details [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv
 - The node can be started with the following command (executed at the UGV Rover)
         
    ```jsx
-   ros2 run ugv_bringup ugv_driver
+   ros2 run ugv_bringup ugv_bringup
    ros2 run ugv_base_node base_node --ros-args -r pub_odom_tf:=true
    ```
    or equivallently
 
    ```jsx
-   ros2 run ugv_bringup ugv_driver
+   ros2 run ugv_bringup ugv_bringup
    ros2 run ugv_base_node base_node --ros-args -r pub_odom_tf:=true
    ```
 
-- The filtered odometry messages could be visualized in RVIZ
+- The filtered odometry messages could be visualized in RVIZ. The RVIZ can be started (from your laptop) with the following command:
+ 
+```jsx
+  ros2 launch ugv_description display.launch.py use_rviz:=true rviz_config:=base_node
+```
       
         
 The other functionalities are explained in the documention of the each of the [ugv packages](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/) and the [Waveshare documentation](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2).
