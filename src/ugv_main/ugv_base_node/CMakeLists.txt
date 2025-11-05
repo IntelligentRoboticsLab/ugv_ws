@@ -49,4 +49,9 @@ install(TARGETS
   base_node_ekf
   DESTINATION lib/${PROJECT_NAME}
 )
+
+install(DIRECTORY rviz
+    DESTINATION share/${PROJECT_NAME}
+)
+
 ament_package()

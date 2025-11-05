@@ -13,12 +13,14 @@ def get_rviz_config_file(context):
 
     # Get the package directories for the UGV project
     ugv_description_dir = get_package_share_directory('ugv_description')
+    ugv_base_node_dir = get_package_share_directory('ugv_base_node')
     ugv_bringup_dir = get_package_share_directory('ugv_bringup')
     ugv_slam_dir = get_package_share_directory('ugv_slam')
     ugv_nav_dir = get_package_share_directory('ugv_nav')
 
     # Define paths for different RViz configuration files
     rviz_description_config = os.path.join(ugv_description_dir, 'rviz', 'view_description.rviz')
+    rviz_base_node_config = os.path.join(ugv_base_node_dir, 'rviz', 'view_base_node.rviz')
     rviz_bringup_config = os.path.join(ugv_bringup_dir, 'rviz', 'view_bringup.rviz')
     rviz_slam_2d_config = os.path.join(ugv_slam_dir, 'rviz', 'view_slam_2d.rviz')
     rviz_slam_3d_config = os.path.join(ugv_slam_dir, 'rviz', 'view_slam_3d.rviz')
@@ -28,6 +30,7 @@ def get_rviz_config_file(context):
     # Map configuration options to corresponding RViz files
     config_map = {
         'description': rviz_description_config,
+        'base_node': rviz_base_node_config,
         'bringup': rviz_bringup_config,
         'slam_2d': rviz_slam_2d_config,
         'slam_3d': rviz_slam_3d_config,
@@ -109,7 +112,7 @@ def generate_launch_description():
         # Argument to specify whether to use RViz
         DeclareLaunchArgument('use_rviz', default_value='false', description='Whether to launch RViz2'),
         # Argument to specify which RViz configuration to use
-        DeclareLaunchArgument('rviz_config', default_value='description', description='Choose which rviz configuration to use: description, bringup, slam_2d, slam_3d, nav_2d, nav_3d'),
+        DeclareLaunchArgument('rviz_config', default_value='description', description='Choose which rviz configuration to use: description, base_node, bringup, slam_2d, slam_3d, nav_2d, nav_3d'),
         # Opaque function to execute the setup
         OpaqueFunction(function=launch_setup)
     ])
