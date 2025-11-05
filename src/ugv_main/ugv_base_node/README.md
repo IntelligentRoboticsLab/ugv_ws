@@ -39,14 +39,16 @@ See for more details [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv
 - The node can be started with the following command (executed at the UGV Rover)
         
    ```jsx
-   ros2 run ugv_bringup ugv_bringup
-   ros2 run ugv_base_node base_node --ros-args -r pub_odom_tf:=true
+   ros2 launch ugv_base_node bringup_base_node.launch.py
+   #this launch file combines the start of these two nodes:
+   # ros2 run ugv_bringup ugv_bringup
+   # ros2 run ugv_base_node base_node --ros-args -r pub_odom_tf:=true
    ```
    or equivallently
 
    ```jsx
    ros2 run ugv_bringup ugv_bringup
-   ros2 run ugv_base_node base_node --ros-args -r pub_odom_tf:=true
+   ros2 run ugv_base_node base_node_ekf --ros-args -r pub_odom_tf:=true
    ```
 
 - The filtered odometry messages could be visualized in RVIZ. The RVIZ can be started (from your laptop) with the following command:
