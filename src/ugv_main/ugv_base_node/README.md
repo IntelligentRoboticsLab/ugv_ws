@@ -5,7 +5,7 @@ This is a fork from [Waveshare' repository](https://github.com/waveshareteam/ugv
 
 Installation instructions can be found at [ugv_ws](https://github.com/IntelligentRoboticsLab/ugv_ws). The other functionalities dedicated to Waveshare's UGV-Rover in the documention can be found in [ugv main](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/). This package can have some other dependencies which should be build from source, which can be found at [ugv_else](https://github.com/waveshareteam/ugv_ws/tree/ros2-humble-develop/src/ugv_else).
 
-This module defines the two-wheel differential kinematics. It actually consists of two nodes:
+This module defines how the movement of the robot is updated via odometry messages. It actually consists of two nodes:
 
 - base_node
 - base_node_ekf
