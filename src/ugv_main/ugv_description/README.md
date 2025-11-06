@@ -7,11 +7,17 @@ Installation instructions can be found at [ugv_ws](https://github.com/Intelligen
 
 This module defines how a UGV mobile robot looks and is configured. The configuration is actually described in three different Unified Robotics Description Format (URDF) files:
 
-- rasp_rover.urdf
-- ugv_beast.urdf
-- ugv_rover.urdf
+- [rasp_rover.urdf](https://www.waveshare.com/wiki/RaspRover)
+- [ugv_beast.urdf](https://www.waveshare.com/wiki/UGV_Beast_PT_Jetson_Orin_AI_Kit)
+- [ugv_rover.urdf](https://www.waveshare.com/wiki/UGV_Rover_PT_Jetson_Orin_AI_kit)
 
-At the Unirsity of Amsterdam we only have experience with the latter mobile robot; the UGV Rover. The definition is publish to be used by other nodes as a (/robot_description) topic.
+At the University of Amsterdam we only have experience with the latter mobile robot; the UGV Rover. The definition is publish to be used by other nodes as a (/robot_description) topic.
+
+# Tutorial
+
+A tutorial is available from Waveshare: [Tutorial 2: RViz View Product Model](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2_2._RViz_View_Product_Model)
+
+Note that to use a visualization tool as RVIZ you should run the commands on system with a display, such as your laptop, and not inside the container running on the UGV Rover.
 
  # Usage 
 
