@@ -29,9 +29,9 @@ The ugv-packages have several parameters, including the hardware configuration, 
 
 The module can be started (on your laptop) with the following command:
 
-``jsx
-ros2 launch ugv_description display.launch.py use_rviz:=true
-```
+  ```jsx
+  ros2 launch ugv_description display.launch.py use_rviz:=true
+  ```
 This launch script actually starts 4 nodes:
 
 - rviz2
@@ -45,32 +45,7 @@ Two of those nodes show up as windows at your screen: RVIZ and Joint State Publi
 
 The node that actually publishes the topic /robot_description is the ugv/robot_state_publiser. The transform_listener is used for logging.
 
-## Run
-     
-- The node can be started with the following command (executed at the UGV Rover)
-        
-   ```jsx
-   ros2 launch ugv_base_node bringup_base_node.launch.py
-   #this launch file combines the start of these two nodes:
-   # ros2 run ugv_bringup ugv_bringup
-   # ros2 run ugv_base_node base_node --ros-args -r pub_odom_tf:=true
-   ```
-   or equivallently
-
-   ```jsx
-   ros2 launch ugv_base_node bringup_base_node_ekf.launch.py
-   #this launch file combines the start of these three nodes:
-   # ros2 run ugv_bringup ugv_bringup
-   # ros2 run ugv_base_node base_node_ekf --ros-args -r pub_odom_tf:=true
-   # ros2 run robot_localization ekf_node --ros-args -r --params-file:=~/ugv_ws/install/ugv_bringup/share/ugv_bringup/param/ekf.yaml --remap /odom/filtered:=/odom
-   ```
-
-- The filtered odometry messages could be visualized in RVIZ. The RVIZ can be started (from your laptop) with the following command:
- 
-```jsx
-  ros2 launch ugv_description display.launch.py use_rviz:=true rviz_config:=base_node
-```
- ![image.png](../../../images/view_base_node_rviz.png)      
+## More information  
         
 The other functionalities are explained in the documention of the each of the [ugv packages](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/) and the [Waveshare documentation](https://www.waveshare.com/wiki/UGV_Rover_Jetson_Orin_ROS2).
     
