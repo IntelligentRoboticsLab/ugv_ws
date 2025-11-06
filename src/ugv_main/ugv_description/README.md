@@ -21,25 +21,29 @@ Note that to use a visualization tool as RVIZ you should run the commands on sys
 
  # Usage 
 
-The ugv-packages have several parameters, including the hardware configuration, specified as environment variable. These nodes themselves do no use UGV_MODEL, but ugv_description does:
+The ugv-packages have several parameters, including the hardware configuration, specified as environment variable. The ugv_description uses the environment variable UGV_MODEL to load the correct URDF:
 
-- UGV_MODEL optional rasp_rover, ugv_rover, ugv_beast
-
-As ros-argument the node expects pub_odom_tf, base_footnote_frame and odom_frame.
+- UGV_MODEL rasp_rover, ugv_rover, ugv_beast
 
 ## Launch
 
-Examples of the launch of these nodes can be found in 
+The module can be started (on your laptop) with the following command:
 
-- bringup_imu_origin.launch.py
-- bringup_imu_ekf.launch.py
+``jsx
+ros2 launch ugv_description display.launch.py use_rviz:=true
+```
+This launch script actually starts 4 nodes:
 
-Note that these launch files also start a imu_complementary_filter from [ROS Humble](https://github.com/CCNYRoboticsLab/imu_tools/tree/humble)
-In addition, the base_node is also started from:
+- rviz2
+- transform_listener
+- ugv/joint_state_publisher
+- ugv/robot_state_publiser
 
-- bringup_lidar.launch.py
+Two of those nodes show up as windows at your screen: RVIZ and Joint State Publisher:
 
-See for more details [ugv_bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup)
+ ![image.png](../../../images/ugv_rover.png)
+
+The node that actually publishes the topic /robot_description is the ugv/robot_state_publiser. The transform_listener is used for logging.
 
 ## Run
      
