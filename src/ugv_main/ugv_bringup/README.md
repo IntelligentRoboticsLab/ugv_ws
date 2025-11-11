@@ -69,7 +69,7 @@ The bringup_imu_ekf.launch.py script in addition also launches
 The bringup_lidar.launch.py script in addition also launches 
 - rf2o_laser_odometry
 
-Some of these additional nodes are regular ROS2 nodes, such as the complementary_filter_gain_node from [imu_tools](https://github.com/CCNYRoboticsLab/imu_tools/tree/humble) and the ekf_filter_node from [robot_localization](https://index.ros.org/p/robot_localization/). The rf2o_laser_dometry node is from [ugv_else/rf2o_laser_odometry](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/rf2o_laser_odometry).
+Some of these additional nodes are regular ROS2 nodes, such as the complementary_filter_gain_node from [imu_tools](https://github.com/CCNYRoboticsLab/imu_tools/tree/humble) and the ekf_filter_node from [robot_localization](https://index.ros.org/p/robot_localization/). The rf2o_laser_dometry node is from [ugv_else/rf2o_laser_odometry](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/rf2o_laser_odometry), which is probably a fork from [MAPIRlab](https://github.com/MAPIRlab/).
 
 ## More information  
         
