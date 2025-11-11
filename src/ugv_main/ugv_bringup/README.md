@@ -28,26 +28,48 @@ The ugv-packages have several parameters, including the hardware configuration, 
 
 ## Launch
 
-The module can be started (on your rover) with the following command:
+The module can be started (on your rover) with the following commands:
+
+  ```jsx
+ ros2 launch ugv_bringup bringup_imu_origin.launch.py use_rviz:=false
+  ```
 
   ```jsx
  ros2 launch ugv_bringup bringup_imu_ekf.launch.py use_rviz:=false
   ```
-This launch script actually starts 6 nodes:
+
+  ```jsx
+ ros2 launch ugv_bringupbringup_lidar.launch.py use_rviz:=false
+  ```
+
+Each launch script actually starts at least the nodes:
 
 - LD19
 - base_node
-- complementary_filter_gain_node
-- ekf_filter_node
 - transform_listener
+- ugv/joint_state_publisher
 - ugv/robot_state_publisher
 - ugv_bringup
+- ugv_driver
+
+
 
 Some of those nodes are called here, but described in other modules, such as the base_node from [ugv base_node](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_base_node) and the robot_state_publisher from [ugv description](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_description). 
-Another example is the LD19 node, which is actually from [ugv_else/ldlidar](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/ldlidar), a fork from the manufacturer's [driver](https://github.com/ldrobotSensorTeam/ldlidar_stl_ros2.git). Other nodes are regular ROS2 nodes, such as ekf_filter_node from [robot_localization](https://index.ros.org/p/robot_localization/) and complementary_filter_gain_node from [imu_tools](https://github.com/CCNYRoboticsLab/imu_tools/tree/humble).
+Another example is the LD19 node, which is actually from [ugv_else/ldlidar](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/ldlidar), a fork from the manufacturer's [driver](https://github.com/ldrobotSensorTeam/ldlidar_stl_ros2.git). 
 
 The nodes specific for this module are ugv_bringup and ugv_driver. ugv_bringup reads out the sensors from the [UGV](https://www.waveshare.com/wiki/UGV02), like odometry, IMU, magnetic field and battery voltage. ugv_driver is the node that subscribes to the /cmd_vel topic and converts those in commands for the motor. In addition, one can control the pan-tilt motors (via the /ugv/joint_states topic) and the leds (via the /ugv/led_ctrl topic).
 
+The bringup_imu_ekf.launch.py script in addition also launches:
+- complementary_filter_gain_node
+  
+The bringup_imu_ekf.launch.py script in addition also launches
+- complementary_filter_gain_node
+- ekf_filter_node
+
+The bringup_lidar.launch.py script in addition also launches 
+- rf2o_laser_odometry
+
+Some of these additional nodes are regular ROS2 nodes, such as the complementary_filter_gain_node from [imu_tools](https://github.com/CCNYRoboticsLab/imu_tools/tree/humble) and the ekf_filter_node from [robot_localization](https://index.ros.org/p/robot_localization/). The rf2o_laser_dometry node is from [ugv_else/rf2o_laser_odometry](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/rf2o_laser_odometry).
 
 ## More information  
         
