@@ -31,20 +31,21 @@ The ugv-packages have several parameters, including the hardware configuration, 
 The module can be started (on your rover) with the following command:
 
   ```jsx
- ros2 launch ugv_bringup bringup_lidar.launch.py use_rviz:=false
+ ros2 launch ugv_bringup bringup_imu_ekf.launch.py use_rviz:=false
   ```
-This launch script actually starts 4 nodes:
+This launch script actually starts 6 nodes:
 
-- rviz2
+- LD19
+- base_node
+- complementary_filter_gain_node
+- ekf_filter_node
 - transform_listener
-- ugv/joint_state_publisher
-- ugv/robot_state_publiser
+- ugv/robot_state_publisher
+- ugv_bringup
 
-Two of those nodes show up as windows at your screen: RVIZ and Joint State Publisher:
+Some of those nodes are called here, but described in other modules, such as the base_node from [ugv base_node](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_base_node) and robot_state_publisher from [ugv description](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_description). Other nodes are regular ROS2 nodes, such as ekf_filter_node from [robot_localization](https://index.ros.org/p/robot_localization/) and complementary_filter_gain_node from [https://github.com/CCNYRoboticsLab/imu_tools/tree/humble].
 
- ![image.png](../../../images/ugv_rover.png)
-
-The node that actually publishes the topic /robot_description is the ugv/robot_state_publiser. The transform_listener is used for logging.
+The node specific for this module is ugv_bringup. 
 
 ## More information  
         
