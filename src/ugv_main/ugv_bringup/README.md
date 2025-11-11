@@ -44,7 +44,7 @@ This launch script actually starts 6 nodes:
 - ugv_bringup
 
 Some of those nodes are called here, but described in other modules, such as the base_node from [ugv base_node](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_base_node) and the robot_state_publisher from [ugv description](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_description). 
-Another example is the LD19 node, which is actually from [ugv_else/ldlidar](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/ldlidar), a fork from the manufacturer's [driver](https://github.com/ldrobotSensorTeam/ldlidar_stl_ros2.git). Other nodes are regular ROS2 nodes, such as ekf_filter_node from [robot_localization](https://index.ros.org/p/robot_localization/) and complementary_filter_gain_node from [https://github.com/CCNYRoboticsLab/imu_tools/tree/humble].
+Another example is the LD19 node, which is actually from [ugv_else/ldlidar](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_else/ldlidar), a fork from the manufacturer's [driver](https://github.com/ldrobotSensorTeam/ldlidar_stl_ros2.git). Other nodes are regular ROS2 nodes, such as ekf_filter_node from [robot_localization](https://index.ros.org/p/robot_localization/) and complementary_filter_gain_node from [imu_tools](https://github.com/CCNYRoboticsLab/imu_tools/tree/humble).
 
 The node specific for this module is ugv_bringup. 
 
