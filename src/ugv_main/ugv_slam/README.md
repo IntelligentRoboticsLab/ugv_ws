@@ -30,21 +30,43 @@ The ugv-packages have several parameters, including the hardware configuration, 
 
 ## Launch
 
-The module can be started (on your rover) with the following commands:
+### Gmapping
+
+This model creates a 2D map based on the observations of the [LD19](https://www.waveshare.com/wiki/DTOF_LIDAR_LD19) lidar. It is a classic algorithm, described on the [OpenSLAM website](https://openslam-org.github.io/gmapping.html). The algorithm is never officially ported to ROS2, this package calls the wrapper which can be found in [ugv_else](https://github.com/waveshareteam/ugv_ws/tree/ros2-humble-develop/src/ugv_else/gmapping), which is probably a fork of [this github page](https://github.com/GMHadou/slam_gmapping_Humble/tree/Ros2_Humble_Launch).
+
+The algorithm is described in the following paper:
+
+- G. Grisetti, C. Stachniss and W. Burgard, "[Improving Grid-based SLAM with Rao-Blackwellized Particle Filters by Adaptive Proposals and Selective Resampling](https://ieeexplore.ieee.org/abstract/document/1570477)", Proceedings of the 2005 IEEE International Conference on Robotics and Automation, Barcelona, Spain, 2005, pp. 2432-2437
+
+The module can be started (on your rover) with the following command:
 
   ```jsx
- ros2 launch u\X use_rviz:=false
+ ros2 launch ugv_slam gmapping.launch.py use_rviz:=false
+  ```
+
+The corresponding visualisation can be started with the command:
+  ```jsx
+ ros2 run rviz2 rviz2 -d ~/ugv_ws/install/ugv_slam/share/ugv_slam/rviz/view_slam_2d.rviz
   ```
 Each launch script actually starts at least the nodes:
 
-- X
+- /LD19
+- /base_node
+- /rf2o_laser_odometry
+- /robot_pose_publisher
+- /slam_gmapping
+- /transform_listener
+- /ugv/joint_state_publisher
+- /ugv/robot_state_publisher
+- /ugv_bringup
+- /ugv_driver
 
 
+Most of those nodes are called here, but described in other modules, like [ugv bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup)
+The node specific for this module is 
 
-Some of those nodes are called here, but described in other modules, such as X
-The nodes specific for this module are Y
+- /slam_gmapping
 
-Some of these additional nodes are regular ROS2 nodes, such as Z
 
 ## More information  
         
