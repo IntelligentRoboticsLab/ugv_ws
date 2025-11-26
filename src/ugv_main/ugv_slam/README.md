@@ -48,7 +48,7 @@ The corresponding visualisation can be started with the command:
   ```jsx
  ros2 run rviz2 rviz2 -d ~/ugv_ws/install/ugv_slam/share/ugv_slam/rviz/view_slam_2d.rviz
   ```
-Each launch script actually starts at least the nodes:
+The launch script actually starts several nodes like:
 
 - /LD19
 - /base_node
@@ -67,6 +67,13 @@ The node specific for this module is
 
 - /slam_gmapping
 
+The slam_gmapping node publishes a number of topics, including:
+
+- /entropy
+- /map
+- /map_metadata
+
+The slam_gmapping also publishes the map_to_odom transform.
 
 ## More information  
         
