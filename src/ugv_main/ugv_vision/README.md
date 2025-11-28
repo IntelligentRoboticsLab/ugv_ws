@@ -9,7 +9,7 @@ This module provides the scripts which are needed to control your UGV Rover. Mul
 
 - *.launch.py
   
-At the University of Amsterdam we only have experience with the the UGV Rover which is equiped with a [LD19](https://www.waveshare.com/wiki/DTOF_LIDAR_LD19) lidar. 
+At the University of Amsterdam we only have experience with the the UGV Rover which is equiped with both an [IMX335](https://www.waveshare.com/wiki/IMX335_5MP_USB_Camera_(B)) and an [OAK-D-Lite](https://www.waveshare.com/wiki/OAK-D-Lite) camera.
 
 # Tutorial
 
@@ -51,8 +51,8 @@ The launch script actually starts several nodes like:
 - /image_proc_container
 
 
-The node central to this module is /usb_cam, which  is actual an official ROS2, described in the [documentation](https://docs.ros.org/en/ros2_packages/humble/api/usb_cam/) 
-The /rectify_color_node is part of [image_proc](https://docs.ros.org/en/rolling/p/image_proc/doc/tutorials.html) pakage.
+The node central to this module is /usb_cam, which  is actual an official ROS2, described in the [documentation](https://docs.ros.org/en/ros2_packages/humble/api/usb_cam/).
+The /rectify_color_node is part of [image_proc](https://docs.ros.org/en/rolling/p/image_proc/doc/tutorials.html) package.
 
 Those two nodes publish the following topics on 30 Hz:
 
