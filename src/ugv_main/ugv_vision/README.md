@@ -1,5 +1,5 @@
 # ugv_vision
-## the module that provides the launch scripts to publish the images of the two camera on the Waveshare's UGV Rover inside ROS2 Humble
+## the module that provides the launch scripts to publish the images of the two cameras on the Waveshare's UGV Rover inside ROS2 Humble
 
 This is a fork from [Waveshare' repository](https://github.com/waveshareteam/ugv_ws/tree/ros2-humble-develop/src/ugv_vision), created for the course 'Vision for Autonomous Robots' at the University of Amsterdam.
 
@@ -36,7 +36,7 @@ See for more details the [WaveShare](https://www.waveshare.com/wiki/IMX335_5MP_U
 The module can be started (on your rover) with the following command:
 
   ```jsx
- ros2 launch *.launch.py use_rviz:=false
+ ros2 launch ugv_vision camera.launch.py use_rviz:=false
   ```
 
 The corresponding visualisation can be started with the command:
@@ -46,19 +46,25 @@ The corresponding visualisation can be started with the command:
 The launch script actually starts several nodes like:
 
 
-- /transform_listener
+- /usb_cam
+- /rectify_color_node
+- /image_proc_container
 
 
-Most of those nodes are called here, but described in other modules, like [ugv bringup](https://github.com/IntelligentRoboticsLab/ugv_ws/tree/ros2-humble-develop/src/ugv_main/ugv_bringup)
-The node specific for this module is 
+The node central to this module is /usb_cam, which  is actual an official ROS2, described in the [documentation](https://docs.ros.org/en/ros2_packages/humble/api/usb_cam/) 
+The /rectify_color_node is part of [image_proc](https://docs.ros.org/en/rolling/p/image_proc/doc/tutorials.html) pakage.
 
-- /*
+Those two nodes publish the following topics on 30 Hz:
 
-The slam_gmapping node publishes a number of topics, including:
-
-- /*
-
-The node also publishes the * transform.
+- /camera_info
+- /image_raw
+- /image_raw/compressed
+- /image_raw/compressedDepth
+- /image_raw/theora
+- /image_rect
+- /image_rect/compressed
+- /image_rect/compressedDepth
+- /image_rect/theora
 
 ## More information  
         
