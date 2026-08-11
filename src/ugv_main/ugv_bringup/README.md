@@ -39,7 +39,7 @@ The module can be started (on your rover) with the following commands:
   ```
 
   ```jsx
- ros2 launch ugv_bringupbringup_lidar.launch.py use_rviz:=false
+ ros2 launch ugv_bringup bringup_lidar.launch.py use_rviz:=false
   ```
 
 Each launch script actually starts at least the nodes:
