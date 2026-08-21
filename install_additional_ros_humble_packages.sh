@@ -47,4 +47,6 @@ sudo apt update && sudo apt autoremove -y
 
 echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc # change this to your group-number
+echo "export UGV_MODEL=ugv_rover" >> ~/.bashrc 
+echo "export LDLIDAR_MODEL=ld19" >> ~/.bashrc 
 source ~/.bashrc 
