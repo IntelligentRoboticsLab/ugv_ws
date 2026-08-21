@@ -41,8 +41,10 @@ sudo apt-get install ros-${ROS_DISTRO}-libg2o -y
 sudo apt-get install ros-${ROS_DISTRO}-apriltag ros-${ROS_DISTRO}-apriltag-msgs ros-${ROS_DISTRO}-apriltag-ros -y
 sudo apt-get install ros-${ROS_DISTRO}-ros-gz -y
 
+sudo apt install ros-${ROS_DISTRO}-rosbag2-storage-mcap 
+
 sudo apt update && sudo apt autoremove -y
 
-echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc # change this to your group-number
 source ~/.bashrc 
