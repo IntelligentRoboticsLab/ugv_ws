@@ -21,22 +21,25 @@ sudo apt remove libopencv-dev -y # will be installed again together with ros-hum
 
 sudo apt install ros-dev-tools -y
 sudo apt install python3-colcon-clean -y
-sudo apt install ros-humble-desktop -y
+
+export ROS_DISTRO="humble" 
+
+sudo apt install ros-${ROS_DISTRO}-desktop -y
 
 # specific for the UGV Rover
 
-sudo apt-get install ros-humble-nav2-msgs ros-humble-map-msgs -y
-sudo apt-get install ros-humble-nav2-costmap-2d -y
-sudo apt-get install ros-humble-rosbridge-suite -y
-sudo apt-get install ros-humble-nav2-bringup -y 
-sudo apt-get install ros-humble-usb-cam ros-humble-depthai-* -y
-sudo apt-get install ros-humble-joint-state-publisher-* -y
-sudo apt-get install ros-humble-robot-localization -y
-sudo apt-get install ros-humble-imu-tools -y
-sudo apt-get install ros-humble-cartographer-ros -y
-sudo apt-get install ros-humble-libg2o -y
-sudo apt-get install ros-humble-apriltag ros-humble-apriltag-msgs ros-humble-apriltag-ros -y
-sudo apt-get install ros-humble-ros-gz -y
+sudo apt-get install ros-${ROS_DISTRO}-nav2-msgs ros-${ROS_DISTRO}-map-msgs -y
+sudo apt-get install ros-${ROS_DISTRO}-nav2-costmap-2d -y
+sudo apt-get install ros-${ROS_DISTRO}-rosbridge-suite -y
+sudo apt-get install ros-${ROS_DISTRO}-nav2-bringup -y 
+sudo apt-get install ros-${ROS_DISTRO}-usb-cam ros-${ROS_DISTRO}-depthai-ros-driver -y
+sudo apt-get install ros-${ROS_DISTRO}-joint-state-publisher-* -y
+sudo apt-get install ros-${ROS_DISTRO}-robot-localization -y
+sudo apt-get install ros-${ROS_DISTRO}-imu-tools -y
+sudo apt-get install ros-${ROS_DISTRO}-cartographer-ros -y
+sudo apt-get install ros-${ROS_DISTRO}-libg2o -y
+sudo apt-get install ros-${ROS_DISTRO}-apriltag ros-${ROS_DISTRO}-apriltag-msgs ros-${ROS_DISTRO}-apriltag-ros -y
+sudo apt-get install ros-${ROS_DISTRO}-ros-gz -y
 
 sudo apt update && sudo apt autoremove -y
 
